@@ -1,13 +1,7 @@
-# Gunakan image Rasa yang resmi
 FROM rasa/rasa:3.6.21
-
-# Salin semua file konfigurasi
 
 WORKDIR /app
 
 COPY . /app
 
-# Install dependencies
-
-# Jalankan Rasa server
 CMD ["run", "--enable-api", "--cors", "*"]

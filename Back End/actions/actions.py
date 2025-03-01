@@ -14,10 +14,10 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 if not OPENAI_API_KEY:
     raise ValueError("API Key OpenAI tidak ditemukan. Setel variabel environment OPENAI_API_KEY.")
 
-# Inisialisasi OpenAI client
+
 client = openai.OpenAI(api_key=OPENAI_API_KEY)
 
-# Path ke dataset CSV
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # Cari path saat ini
 CSV_PATH = os.path.join(BASE_DIR, "../dataset/data_produk.csv")  # Akses file dataset
 
@@ -48,7 +48,7 @@ class ActionCariProduk(Action):
                 dispatcher.utter_message(text="Maaf, saya tidak bisa memahami harga yang Anda berikan.")
                 return []
 
-        # Filter data
+        
         filtered_products = df.copy()
 
         if category:

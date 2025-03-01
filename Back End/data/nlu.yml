@@ -52,7 +52,6 @@ nlu:
     - ada [baju](category) yang bagus?
     - tolong carikan [jam](category)
     - saya butuh [dompet](category)
-    
 
 - intent: nlu_fallback
   examples: |

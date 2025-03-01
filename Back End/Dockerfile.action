@@ -2,14 +2,10 @@ FROM python:3.10.16
 
 WORKDIR /app
 
-# Salin folder actions
 COPY actions /app/actions
 
-# Salin requirements.txt dari root project
 COPY requirements.txt /app/
 
-# Install dependencies
 RUN pip install --no-cache-dir -r /app/requirements.txt
 
-# Jalankan action server
 CMD ["rasa", "run", "actions"]

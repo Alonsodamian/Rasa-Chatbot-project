@@ -7,8 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const chatWindow = document.getElementById("chat-window");
   const inputBox = document.getElementById("input-box");
   const sendButton = document.getElementById("send-button");
-  
-  // Fungsi untuk menampilkan pesan di chat window
+
   function addMessage(message, sender) {
     const messageDiv = document.createElement("div");
     messageDiv.className = `message ${sender}`;
@@ -17,16 +16,13 @@ document.addEventListener("DOMContentLoaded", function () {
     chatWindow.scrollTop = chatWindow.scrollHeight;
   }
   
-  // Fungsi untuk mengirim pesan ke server Rasa
   function sendMessage() {
     const message = inputBox.value.trim();
     if (message === "") return;
   
-    // Tampilkan pesan pengguna
     addMessage(`Anda: ${message}`, "user");
     inputBox.value = "";
   
-    // Kirim pesan ke Rasa
     fetch("http://localhost:5005/webhooks/rest/webhook", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -49,13 +45,11 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
   
-  // Event klik pada tombol "Kirim"
   sendButton.addEventListener("click", sendMessage);
   
-  // Memastikan tombol "Enter" bisa mengirim pesan
   inputBox.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
-      event.preventDefault(); // Mencegah efek default (seperti line break di input)
+      event.preventDefault(); 
       sendMessage();
     }
   });

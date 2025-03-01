@@ -1,6 +1,5 @@
 version: "3.1"
 
-# Define entities used in your NLU
 entities:
   - product_query
   - category
@@ -8,7 +7,6 @@ entities:
   - price
   - shop_name
 
-# List your intents
 intents:
   - greet
   - akun_keamanan
@@ -19,8 +17,6 @@ intents:
   - pencarian_chatbot
   - nlu_fallback
 
-
-# Register your custom actions
 actions:
   - action_cari_produk
   - action_gpt_fallback
