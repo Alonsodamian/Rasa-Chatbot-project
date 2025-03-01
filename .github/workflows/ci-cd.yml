@@ -22,8 +22,11 @@ jobs:
       - name: Build Backend Image
         run: docker build -t rasa-backend -f "Back End/Dockerfile.rasa" "./Back End"
 
+      - name: Build Action Server Image
+        run: docker build -t rasa-action -f "Back End/Dockerfile.action" "./Back End"
+
       - name: Build Frontend Image
-        run: docker build -t rasa-frontend -f "Front End/Dockerfile" "./Front End"
+        run: docker build -t rasa-frontend -f "Front End/Dockerfile.frontend" "./Front End"
 
       - name: Run Tests (Backend)
         run: |
