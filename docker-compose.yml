@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  rasa:
+    build:
+      context: ./Back End
+      dockerfile: Dockerfile.rasa
+    ports:
+      - "5005:5005"
+    volumes:
+      - ./Back End/models:/app/models
+      - ./Back End/data:/app/data
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    depends_on:
+      - action_server
+    restart: unless-stopped
+    command: ["run", "--enable-api", "--cors", "*"]
+
+  action_server:
+    build:
+      context: ./Back End
+      dockerfile: Dockerfile.action
+    ports:
+      - "5055:5055"
+    volumes:
+      - ./Back End/actions:/app/actions
+      - ./Back End/dataset:/app/dataset
+    env_file:
+      - ./Back End/.env
+    restart: unless-stopped
+    command: ["rasa", "run", "actions"]
+
+  frontend:
+    build:
+      context: ./Front End
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "3000:80"
+    volumes:
+      - ./Front End:/usr/share/nginx/html
+    depends_on:
+      - rasa
+    restart: unless-stopped

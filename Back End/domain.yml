@@ -1,0 +1,136 @@
+version: "3.1"
+
+# Define entities used in your NLU
+entities:
+  - product_query
+  - category
+  - colour
+  - price
+  - shop_name
+
+# List your intents
+intents:
+  - greet
+  - akun_keamanan
+  - shipping_info
+  - rules_info
+  - search_product
+  - other_questions
+  - pencarian_chatbot
+  - nlu_fallback
+
+
+# Register your custom actions
+actions:
+  - action_cari_produk
+  - action_gpt_fallback
+
+responses:
+  utter_greet:
+    - text: |
+        Halo, selamat datang di asisten AI. Ada yang bisa saya bantu hari ini? 😊
+        
+        **FAQ (Pertanyaan yang sering ditanyakan)**:
+        
+        1️⃣ Pencarian Produk  
+
+        2️⃣ Pengiriman   
+
+        3️⃣ Kebijakan dan Peraturan  
+        
+        4️⃣ Akun & Keamanan  
+
+  utter_shipping_info:
+    - text: |
+        📦 **Metode Pengiriman:**  
+        Kami menyediakan beberapa opsi pengiriman, termasuk reguler, ekspres, dan same-day delivery (tergantung lokasi).
+        
+        ⏳ **Estimasi Waktu Pengiriman:**  
+        - **Reguler:** 3-5 hari kerja  
+        - **Ekspres:** 1-2 hari kerja  
+        - **Same-day:** Tiba di hari yang sama jika dipesan sebelum batas waktu tertentu  
+        
+        💰 **Biaya Pengiriman:**  
+        Biaya pengiriman tergantung pada lokasi tujuan dan metode yang dipilih. Anda dapat melihat detail biaya saat checkout.
+        
+        📍 **Pelacakan Pesanan:**  
+        Setelah pesanan dikirim, Anda akan menerima nomor resi untuk melacak status pengiriman.
+
+  utter_rules_info:
+    - text: |
+        📜 **Kebijakan dan Peraturan**
+        
+        1️⃣ **Kebijakan Pemesanan**  
+        - Pesanan yang telah dikonfirmasi tidak dapat dibatalkan, kecuali ada kendala tertentu.  
+        - Pastikan informasi alamat dan kontak yang diberikan sudah benar untuk menghindari kesalahan pengiriman.  
+        
+        2️⃣ **Kebijakan Pengembalian & Penukaran**  
+        - Produk dapat dikembalikan atau ditukar dalam waktu **7 hari setelah diterima** jika terdapat cacat produksi atau kesalahan pengiriman.  
+        - Produk harus dalam kondisi asli, belum digunakan, dan dikembalikan dengan kemasan lengkap.  
+        - Pengembalian dana akan diproses dalam waktu **3-7 hari kerja** setelah barang diterima kembali.  
+        
+        3️⃣ **Kebijakan Pengiriman**  
+        - Waktu pengiriman dapat bervariasi tergantung pada lokasi dan metode yang dipilih.  
+        - Kami tidak bertanggung jawab atas keterlambatan akibat faktor eksternal seperti cuaca atau gangguan logistik.  
+        
+        4️⃣ **Kebijakan Privasi**  
+        - Kami menjaga kerahasiaan data pelanggan dan tidak akan membagikan informasi pribadi kepada pihak ketiga tanpa izin.  
+        - Informasi pelanggan hanya digunakan untuk keperluan pemrosesan pesanan dan layanan pelanggan.  
+
+  utter_akun_keamanan:
+    - text: |
+        🔐 **Akun & Keamanan**
+        
+        1️⃣ **Cara Membuat Akun:**  
+        - Klik tombol "Daftar" di halaman utama.  
+        - Isi informasi yang diperlukan, seperti email dan kata sandi.  
+        - Verifikasi akun melalui email yang dikirimkan.  
+        
+        2️⃣ **Lupa Kata Sandi:**  
+        - Klik "Lupa Kata Sandi" pada halaman login.  
+        - Masukkan email yang terdaftar dan ikuti petunjuk untuk mengatur ulang kata sandi.  
+        
+        3️⃣ **Keamanan Akun:**  
+        - Jangan bagikan kata sandi Anda kepada siapa pun.  
+        - Aktifkan autentikasi dua faktor (2FA) jika tersedia untuk keamanan ekstra.  
+        - Jika mencurigai aktivitas tidak wajar, segera ubah kata sandi dan hubungi layanan pelanggan.  
+
+  utter_search_product:
+    - text: |
+        🔍 **Cara Mencari Produk:**  
+        1️⃣ **Pencarian Manual:**  
+        - Ketik langsung nama produk (contoh: Nike Air Zoom Pegasus 37).  
+        - Gunakan filter kategori, harga, atau merek untuk menyempurnakan pencarian.  
+        
+        2️⃣ **Pencarian via Chatbot:**  
+        - Cukup tanyakan, misalnya: "Saya butuh sepatu."  
+        - Saya akan membantu dengan rekomendasi produk terbaik untuk Anda.  
+
+  utter_other_questions:
+    - text: "Silakan ajukan pertanyaan lain yang berkaitan dengan layanan kami, dan saya akan berusaha membantu Anda."
+
+slots:
+  category:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: category
+  price:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: price
+  colour:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: colour
+  shop_name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: shop_name
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

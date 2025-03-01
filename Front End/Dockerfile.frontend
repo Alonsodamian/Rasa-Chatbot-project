@@ -1,0 +1,8 @@
+# Gunakan Nginx sebagai web server
+FROM nginx:alpine
+
+# Copy semua file HTML, CSS, dan JS ke dalam Nginx
+COPY . /usr/share/nginx/html
+
+# Expose port 80 untuk akses website
+EXPOSE 80

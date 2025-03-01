@@ -1,0 +1,62 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - Halo
+    - Selamat pagi
+    - Hai
+    - Selamat siang
+    - Permisi, saya butuh bantuan
+    - menu
+    - balik ke menu 
+
+- intent: shipping_info
+  examples: |
+    - Bagaimana informasi pengiriman?
+    - Berapa lama pengiriman barang?
+    - Apa biaya pengirimannya?
+    - Saya ingin tahu tentang pengiriman
+
+- intent: rules_info
+  examples: |
+    - Apa saja kebijakan di sini?
+    - Bagaimana aturan pembelian?
+    - Saya ingin tahu kebijakan toko
+    - Apa syarat untuk pengembalian barang?
+
+- intent: search_product
+  examples: |
+    - pencarian produk
+    - bagaimana mencari produk disini?
+    - cari produk
+
+- intent: akun_keamanan
+  examples: |
+    - akun & kemananansi
+    - kemananan akun disini
+    - lupa kata sandi
+    - cara buat akun
+    - cara menjaga akun 
+
+- intent: other_questions
+  examples: |
+    - Saya memiliki pertanyaan lain
+    - Ada hal lain yang ingin saya tanyakan
+    - Saya butuh bantuan lebih lanjut
+
+- intent: pencarian_chatbot
+  examples: |
+    - saya cari [tas](category)
+    - saya ingin beli [sepatu](category)
+    - ada [baju](category) yang bagus?
+    - tolong carikan [jam](category)
+    - saya butuh [dompet](category)
+    
+
+- intent: nlu_fallback
+  examples: |
+    - random text
+    - apa makna hidup
+    - bagi rumus matematika
+

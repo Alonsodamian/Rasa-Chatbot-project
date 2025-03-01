@@ -1,0 +1,40 @@
+version: "3.1"
+
+stories:
+  - story: greet and choose faq
+    steps:
+    - intent: greet
+    - action: utter_greet
+
+
+  - story: user asks about shipping
+    steps:
+    - intent: shipping_info
+    - action: utter_shipping_info
+
+  - story: user asks about rules
+    steps:
+    - intent: rules_info
+    - action: utter_rules_info
+
+  - story: user asks accounts and security
+    steps:
+    - intent: akun_keamanan
+    - action: utter_akun_keamanan
+
+  - story: user searches for a product
+    steps:
+    - intent: search_product
+    - action: utter_search_product
+
+  - story: user search product from chatbot
+    steps:
+    - intent: pencarian_chatbot
+    - action: action_cari_produk
+
+  - story: user ask different scopr
+    steps:
+    - intent: nlu_fallback
+    - action: action_gpt_fallback
+
+

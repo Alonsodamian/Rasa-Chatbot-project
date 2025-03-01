@@ -1,0 +1,43 @@
+version: "3.1"
+
+rules:
+- rule: Respond to greetings
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Respond to shipping info
+  steps:
+  - intent: shipping_info
+  - action: utter_shipping_info
+
+- rule: Respond to rules info
+  steps:
+  - intent: rules_info
+  - action: utter_rules_info
+
+- rule: Respond to akun keamanan
+  steps:
+  - intent: akun_keamanan
+  - action: utter_akun_keamanan
+
+- rule: Respond to product search
+  steps:
+  - intent: search_product
+  - action: utter_search_product
+
+- rule: Respond to other questions
+  steps:
+  - intent: other_questions
+  - action: utter_other_questions
+
+- rule: Respond question product from chatbot
+  steps:
+  - intent: pencarian_chatbot
+  - action: action_cari_produk
+  
+
+- rule: Handle low confidence responses with GPT
+  steps:
+  - intent: nlu_fallback
+  - action: action_gpt_fallback
